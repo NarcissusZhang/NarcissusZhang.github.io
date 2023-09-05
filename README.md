@@ -1,1 +1,1 @@
-OBJ models of Shenzhen University
+Textured 3D models of Shenzhen University.
