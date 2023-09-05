@@ -29,27 +29,27 @@
 
 			//Add the 3D Tileset you created from your Cesium ion account.
 			const testTileset = await Cesium.Cesium3DTileset.fromIonAssetId(2222443);
-			testTileset.maximumScreenSpaceError = 2; // 修改最小可见尺寸为8
+			testTileset.maximumScreenSpaceError = 2; // 修改最小可见尺寸为2
 			viewer.scene.primitives.add(testTileset);
 			
 			const cangTileset = await Cesium.Cesium3DTileset.fromIonAssetId(2250582);
-			cangTileset.maximumScreenSpaceError = 1; // 修改最小可见尺寸为8
+			cangTileset.maximumScreenSpaceError = 2;
 			viewer.scene.primitives.add(cangTileset);
 			
 			const plazaTileset = await Cesium.Cesium3DTileset.fromIonAssetId(2250623);
-			plazaTileset.maximumScreenSpaceError = 1; // 修改最小可见尺寸为8
+			plazaTileset.maximumScreenSpaceError = 2;
 			viewer.scene.primitives.add(plazaTileset);
 			
 			const middleTileset = await Cesium.Cesium3DTileset.fromIonAssetId(2250663);
-			middleTileset.maximumScreenSpaceError = 1; // 修改最小可见尺寸为8
+			middleTileset.maximumScreenSpaceError = 2;
 			viewer.scene.primitives.add(middleTileset);
 			
 			const sportsTileset = await Cesium.Cesium3DTileset.fromIonAssetId(2250773);
-			sportsTileset.maximumScreenSpaceError = 1; // 修改最小可见尺寸为8
+			sportsTileset.maximumScreenSpaceError = 2;
 			viewer.scene.primitives.add(sportsTileset);
 			
 			const wenkeTileset = await Cesium.Cesium3DTileset.fromIonAssetId(2250728);
-			wenkeTileset.maximumScreenSpaceError = 1; // 修改最小可见尺寸为8
+			wenkeTileset.maximumScreenSpaceError = 2;
 			viewer.scene.primitives.add(wenkeTileset);
 			
 
