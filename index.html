@@ -35,7 +35,7 @@
 					try {
 						var tileset = await Cesium.Cesium3DTileset.fromIonAssetId(id);
 						tileset.maximumScreenSpaceError = 2; // 修改最小可见尺寸
-						await viewer.scene.primitives.add(tileset);
+						viewer.scene.primitives.add(tileset);
 						console.log('Model loaded:', id);
 					} catch (error) {
 						console.error('Failed to load model:', id, error);
