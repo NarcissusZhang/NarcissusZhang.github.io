@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<!-- Include the CesiumJS JavaScript and CSS files -->
+		<script src="https://cesium.com/downloads/cesiumjs/releases/1.108/Build/Cesium/Cesium.js"></script>
+		<link href="https://cesium.com/downloads/cesiumjs/releases/1.108/Build/Cesium/Widgets/widgets.css"
+			rel="stylesheet">
+	</head>
+	<body>
+		<div id="cesiumContainer"></div>
+		<script type="module">
+			Cesium.Ion.defaultAccessToken =
+				'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiI5YWJjZGRmNC00NzgzLTQ3OWUtOGZlYS0xZmU0NGQ0MGQ5OTUiLCJpZCI6MTYwNjc3LCJpYXQiOjE2OTIxNTYzNjB9.gp_TNiFtvdAmRL4SClx9Uh93mNmOb82xHassbcwxl0s';
+
+			const viewer = new Cesium.Viewer('cesiumContainer', {
+				terrain: Cesium.Terrain.fromWorldTerrain(),
+			});
+
+
+			// Fly the camera to Shenzhen University at the given longitude, latitude, and height.
+			viewer.camera.flyTo({
+				destination: Cesium.Cartesian3.fromDegrees(113.79, 22.415, 3500),
+				orientation: {
+					heading: Cesium.Math.toRadians(0),
+					pitch: Cesium.Math.toRadians(-90),
+				}
+			});
+
+			// 模型ID的数组，按加载顺序排列
+			const modelIds = [2305712, 2305727, 2305772, 2305760]; 
+
+			async function loadModelsInOrder(modelIds) {
+				for (var id of modelIds) {
+					try {
+						var tileset = await Cesium.Cesium3DTileset.fromIonAssetId(id);
+						tileset.maximumScreenSpaceError = 2; // 修改最小可见尺寸
+						viewer.scene.primitives.add(tileset);
+						console.log('Model loaded:', id);
+					} catch (error) {
+						console.error('Failed to load model:', id, error);
+					}
+				}
+
+				console.log('All models loaded');
+			}
+
+			// 调用函数开始按顺序加载模型
+			loadModelsInOrder(modelIds);
+
+		</script>
+		</div>
+	</body>
+</html>
