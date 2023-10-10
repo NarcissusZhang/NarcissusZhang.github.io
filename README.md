@@ -1,1 +1,1 @@
-Textured 3D models of Shenzhen University.
+3D textured and semantic meshes of Neilingding Island.
